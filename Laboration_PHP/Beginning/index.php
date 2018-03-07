@@ -32,4 +32,6 @@ else if($page=="kontakt") {
 else {
 	echo "Den sökta sidan finns inte";
 }
+
+
 ?>
