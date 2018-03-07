@@ -1,8 +1,6 @@
 body {
 	background-color: #880045;
-	font-family: Arial;
 }
-
 header {
 	border: 2px solid #9D2763;
 	width: 600px;
@@ -57,42 +55,4 @@ nav ul li a.highlight
 	color: #880045;
 	background-color: #E869AA;
 	font-weight: bold;
-}
-
-div.post
-{
-	border: 1px solid #880045;
-	padding: 5px;
-	margin-bottom: 10px;
-}
-
-div.post h3
-{
-	color: #880045;
-	margin-bottom: 5px;
-	margin-top: 5px;
-}
-
-div.post a
-{
-	color: #880045;
-}
-
-p.author
-{
-	margin-bottom: 0px;
-	margin-top: 5px;
-}
-
-p.date
-{
-	margin-top: 0px;
-	margin-bottom: 5px;
-}
-
-p.message
-{
-	border-top: 1px solid #E83A93;
-	padding-top: 5px;
-	margin-top: 5px;
 }

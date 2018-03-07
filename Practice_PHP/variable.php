@@ -75,7 +75,7 @@
         echo $baz;
 
         /*------------------------------------------------*/
-        //echo "hej" + "san" . '<br>';
+        /*echo "hej" + "san" . '<br>';
         echo "hej" . "san";
 
         echo '<br>';
@@ -97,6 +97,7 @@
         echo true . " go gubbe". "\n";
 
         echo '<br>';
+        */
         /*$foo = "tjo";
         $foo .= "san";
         echo $foo;
