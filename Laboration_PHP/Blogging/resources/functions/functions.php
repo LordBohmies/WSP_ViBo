@@ -26,22 +26,7 @@ function navigation($highlight) {
 	    </nav>';
 }
 
-/*Skapa en ny funktion på rad 36 som heter echoYear. Funktionen skall:
-- om året idag är 2017 så skriver funktinen ut copyright 2017
-- om året är större än 2017 så skriv ut copyright 2017-året
+//Function for Copyright
 
-Denna funktion ska anropas i footer.php så att texten blir "Vårt första PHP-projekt, copyright 2017"
-För att testa funktionen så ändra datum på datorn till 2017*/
-
-function echoYear(){
-    $year = date('Y');
-
-    if ($year == 2017) {
-        echo 'copyright 2017';
-    }
-    else {
-        echo 'copyright 2017-' . $year;
-    }
-}
 
 ?>

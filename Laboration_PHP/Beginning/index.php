@@ -19,12 +19,12 @@ if(empty($page)) {
 	</div>';
     include ('resources/templates/page-template.php');
 }
-else if($page=="blogg") {
+elseif($page=="blogg") {
     $header = 'Blogg';
 	$content = '<div class="content">Här ska alla blogginlägg visas</div>';
     include ('resources/templates/page-template.php');
 }
-else if($page=="kontakt") {
+elseif($page=="kontakt") {
 	$header = 'Kontakt';
     $content = '<div class="content">Du når oss på epost@labb2.se</div>';
     include ('resources/templates/page-template.php');
