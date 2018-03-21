@@ -15,6 +15,7 @@ $content = '';
 // First check if $page is empty.
 if(empty($page)) {
 	$header = 'Start';
+	/*Old way from Beginning--> <div class="content">Long text...</div>*/
     $content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
     require ('resources/templates/page-template.php');
 }
@@ -24,6 +25,9 @@ elseif($page == 'blogg') {
     $header = 'Blogg';
 	$post = filter_input(INPUT_GET, 'post', FILTER_SANITIZE_URL);
 	$template = 'all-blog-posts';
+
+	//http://porkforge.mardby.se/index.php?title=PHP_Laboration_3_-_Array_och_loopar#.C3.96vning_4
+	//print_r($model);
 
 	// Check if subpage $post is not empty
 	if (!empty($post)) {
@@ -51,6 +55,7 @@ elseif($page == 'blogg') {
 // Check if $page is contacts.
 elseif($page == 'kontakt') {
 	$header = 'Kontakt';
+	/*Old way from Beginning--> <div class="content">Info...</div>*/
     $content = 'Du når oss på epost@labb2.se';
     require ('resources/templates/page-template.php');
 }
@@ -58,6 +63,7 @@ elseif($page == 'kontakt') {
 
 // If not any page, 404 message.
 else {
+	/*echo "Den sökta sidan finns inte";*/
 	$header = 'error 404';
 	$error = 'Den här sidan finns inte!';
 	require ('resources/templates/page-template.php');
