@@ -1,0 +1,39 @@
+http://localhost/phpmyadmin/
+Bekanta dig med phpMyAdmin - https://www.youtube.com/watch?v=0hog1GAPfIo
+
+1.  Skapa en ny Användare
+    Användarnamn: admin
+    Värd: localhost
+    Lösenord: valfritt
+    Bocka i:
+        Skapa databas med samma namn och tilldela alla privilegier
+        Globala privilegier - Markera alla
+
+2.  Gå till databasen blogg
+    Under Operationer ändra Kollatering till utf8mb4_general_ci
+
+3.  Skapa tabellen posts (om du redan har tabellen posts hoppa vidare till 3.b)
+    a.
+    CREATE TABLE Posts (
+    ID int(8) PRIMARY KEY AUTO_INCREMENT,
+    User_ID int(8) NOT NULL,
+    Headline varchar(100) NOT NULL,
+    Text text(500) NOT NULL,
+    Likes int(8) DEFAULT '0',
+    Creation_time timestamp DEFAULT CURRENT_TIMESTAMP
+    );
+
+    b. Ta bort alla poster i tabllen Posts, tänk på att du kan behöva tömma tabellen comments först.
+
+    c. Lägg till kolumnen Slug efter User_ID.
+    Typ: varchar
+    Längd: 100
+
+    d. Under Operationer ändra Kollatering till utf8mb4_general_ci, men har du satt det för databasen så kommer tabellen få samma kollatering som databasen
+
+    e. Fyll på tabellen posts med de fyra inläggen du har i model-arrayen. Exempelvis:
+    INSERT INTO `posts` (`User_ID`, `Slug`, `Headline`, `Text`, `Creation_time`) VALUES
+        (1, 'forsta-inlagget', 'Första inlägget', 'Här kommer det första inlägget i sin helhet. Välkommen till Labb 3! Här övar vi på PHP för att bli duktiga webbserverprogrammerare. Detta är tredje labben och andra labben i en serie labbar som tillsammans bygger ihop detta projekt. Ett enkelt PHP-projekt men väl strukturerat och genomtänkt konstruerat.', '2017-12-31 23:00:00'),
+        (2, 'snart-ar-det-var', 'Snart är det vår', 'Snart är det vår! Då övar vi på PHP för att bli duktiga webbserverprogrammerare. Detta är tredje labben och andra labben i en serie labbar som tillsammans bygger ihop detta projekt. Ett enkelt PHP-projekt men väl strukturerat och genomtänkt konstruerat.', '2018-01-31 23:00:00'),
+        (3, 'robin-presenterar-sig', 'Robin presenterar sig', 'Robin är en trevlig prick som gärna övar på PHP för att som du bli en duktig webbserverprogrammerare. Detta är tredje labben och andra labben i en serie labbar som tillsammans bygger ihop detta projekt. Ett enkelt PHP-projekt men väl strukturerat och genomtänkt konstruerat.', '2018-02-23 23:00:00'),
+        (1, 'senaste-inlagget', 'Senaste inlägget', 'Här kommer senaste inlägget i sin helhet. Välkommen till Labb 3! Här övar vi på PHP för att bli duktiga webbserverprogrammerare. Detta är tredje labben och andra labben i en serie labbar som tillsammans bygger ihop detta projekt. Ett enkelt PHP-projekt men väl strukturerat och genomtänkt konstruerat.', '2018-03-27 21:42:11');

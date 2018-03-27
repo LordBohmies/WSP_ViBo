@@ -1,0 +1,98 @@
+body {
+	background-color: #880045;
+	font-family: Arial;
+}
+
+header {
+	border: 2px solid #9D2763;
+	width: 600px;
+	margin-bottom: 5px;
+	text-align: center;
+	background-color: #E83A93;
+	background-image: url("http://porkforge.mardby.se/skins/common/images/wiki.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: 20px;
+
+}
+
+nav {
+	border: 2px solid #9D2763;
+	width: 600px;
+	margin-bottom: 5px;
+	text-align: center;
+	background-color: #E83A93;
+}
+
+.content {
+	border: 2px solid #9D2763;
+	width: 560px;
+	margin-bottom: 5px;
+	padding: 10px 20px;
+	background-color: #E869AA;
+}
+
+footer {
+	border: 2px solid #9D2763;
+	width: 600px;
+	text-align: center;
+	background-color: #E83A93;
+}
+
+nav ul li {
+	display: inline;
+}
+
+nav ul li a
+{
+	text-decoration: none;
+	padding: 5px;
+	border: 2px solid black;
+	color: white;
+	background-color: #880045;
+}
+
+nav ul li a.highlight
+{
+	color: #880045;
+	background-color: #E869AA;
+	font-weight: bold;
+}
+
+div.post
+{
+	border: 1px solid #880045;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+div.post h3
+{
+	color: #880045;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+div.post a
+{
+	color: #880045;
+}
+
+p.author
+{
+	margin-bottom: 0px;
+	margin-top: 5px;
+}
+
+p.date
+{
+	margin-top: 0px;
+	margin-bottom: 5px;
+}
+
+p.message
+{
+	border-top: 1px solid #E83A93;
+	padding-top: 5px;
+	margin-top: 5px;
+}
