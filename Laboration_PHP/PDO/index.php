@@ -1,6 +1,12 @@
 <?php
-require ('resources/functions/functions.php');
-require ('resources/functions/model.php');
+/*
+This is my solution for the laboration that Niklas Mårdby share on his wiki Porkforge.
+I've used this laboration to show my pupils how you can work with PHP in developement.
+http://porkforge.mardby.se/index.php?title=PHP_Laboration_4_-_PDO_och_visa_en_tabell
+*/
+
+require ('resources/includes/view.php');
+require ('resources/includes/model.php');
 // Set header correct without using HTML
 header("Content-type: text/html; charset=utf-8");
 

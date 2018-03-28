@@ -27,6 +27,15 @@ function navigation($highlight) {
 }
 
 //Function for Copyright
+function echoYear(){
+    $year = date('Y');
 
+    if ($year == 2017) {
+        echo 'copyright 2017';
+    }
+    else {
+        echo 'copyright 2017-' . $year;
+    }
+}
 
 ?>
