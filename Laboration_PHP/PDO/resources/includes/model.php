@@ -1,5 +1,12 @@
 <?php
 
+
+
+
+
+
+
+
 //Simple array for topics - Övning 4 (http://porkforge.mardby.se/index.php?title=PHP_Laboration_3_-_Array_och_loopar#.C3.96vning_4)
 //$model = array("Första inlägget","Snart är det vår","Robin Presenterar sig","Senaste inlägget")
 

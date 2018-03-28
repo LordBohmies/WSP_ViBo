@@ -1,0 +1,128 @@
+1. SKAPA TRE TABELLER I DIN DATABAS MED TILLHÖRANDE KOLUMNER.
+USERS (TABELL FÖR ATT LAGRA ANVÄNDARE)
+ID
+Username
+First_name
+Last_name
+Mail
+
+CREATE TABLE Users(
+ ID int(8) PRIMARY KEY AUTO_INCREMENT,
+ Username varchar(50) UNIQUE NOT NULL,
+ First_name varchar(50) NOT NULL,
+ Last_name varchar(50) NOT NULL,
+ Mail varchar(100) UNIQUE NOT NULL,
+);
+--------------------------------------------------
+POSTS (TABELL FÖR ATT LAGRA INLÄGG SKAPADE AV EN SPECIFIK ANVÄNDARE)
+ID
+User_ID
+Headline
+Text
+Likes
+Creation_time
+
+CREATE TABLE Posts (
+ ID int(8) PRIMARY KEY AUTO_INCREMENT,
+ User_ID int(8) NOT NULL,
+ Headline varchar(100) NOT NULL,
+ Text text(500) NOT NULL,
+ Likes int(8) DEFAULT '0',
+ Creation_time timestamp DEFAULT CURRENT_TIMESTAMP
+);
+--------------------------------------------------
+COMMENTS (TABELL FÖR ATT LAGRA KOMMENTARER PÅ ETT SPECIFIKT INLÄGG SKAPADE AV EN SPECIFIK ANVÄNDARE)
+ID
+Post_ID
+User_ID
+Text
+Likes
+
+CREATE TABLE Comments (
+ ID int(8) PRIMARY KEY AUTO_INCREMENT,
+ Post_ID int(8) NOT NULL,
+ User_ID int(8) NOT NULL,
+ Text text(500) NOT NULL,
+ Likes int(8) DEFAULT '0',
+ Creation_time timestamp DEFAULT CURRENT_TIMESTAMP
+);
+--------------------------------------------------
+BONUS - FOREIGN KEYS
+ALTER TABLE Posts
+ADD FOREIGN KEY (User_ID) REFERENCES Users(ID);
+ALTER TABLE Comments
+ADD FOREIGN KEY (User_ID) REFERENCES Users(ID);
+ALTER TABLE Comments
+ADD FOREIGN KEY (Post_ID) REFERENCES Posts(ID);
+
+----------------------------------------------------------------------------------------------------
+2. FYLL PÅ DINA TABELLER MED INFORMATION.
+A. Skapa tre fullständiga användare.
+INSERT INTO Users (Username, First_name, Last_name, Mail) VALUES 
+('Ernst','Anders','Fossmo','ernst@fossmo.se'), 
+('Bar','Bengt','Harald','bengt.harald@mail.com'),
+('Cilla','Cecilia','Karlsson','cilla@mail.se'),
+('DavidA','David','Andersson','davida90@mail.com'),
+('Evil','Eva','Östberg','ostberg@mail.com');
+--------------------------------------------------
+B. Skapa två fullständiga inlägg per användare.
+INSERT INTO Posts (User_Id, Headline, Text)
+('1','Välkomna!','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique dapibus lacus, vitae venenatis nibh elementum et. Nullam eu iaculis risus, ac pulvinar est. Nam at nisi vel lorem varius porttitor. Nullam eget ipsum leo. Fusce ligula arcu, dictum at posuere scelerisque, sodales et est. Aliquam a purus eleifend, pulvinar eros sit amet, posuere velit. Sed cursus velit consequat, mattis ex sodales, suscipit lectus. Nulla at placerat odio. Curabitur quis ultrices libero. Morbi aliquam iaculis sapien. Integer elementum nulla nec pellentesque mollis. Proin a tellus at nulla mattis facilisis. In efficitur viverra mauris non ultrices. Pellentesque sed mauris semper, mollis dui nec, hendrerit ipsum.'),
+('2','First!','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique dapibus lacus, vitae venenatis nibh elementum et. Nullam eu iaculis risus, ac pulvinar est. Nam at nisi vel lorem varius porttitor. Nullam eget ipsum leo. Fusce ligula arcu, dictum at posuere scelerisque, sodales et est. Aliquam a purus eleifend, pulvinar eros sit amet, posuere velit. Sed cursus velit consequat, mattis ex sodales, suscipit lectus. Nulla at placerat odio. Curabitur quis ultrices libero. Morbi aliquam iaculis sapien. Integer elementum nulla nec pellentesque mollis. Proin a tellus at nulla mattis facilisis. In efficitur viverra mauris non ultrices. Pellentesque sed mauris semper, mollis dui nec, hendrerit ipsum.'),
+('4','Vem är jag?','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique dapibus lacus, vitae venenatis nibh elementum et. Nullam eu iaculis risus, ac pulvinar est. Nam at nisi vel lorem varius porttitor. Nullam eget ipsum leo. Fusce ligula arcu, dictum at posuere scelerisque, sodales et est. Aliquam a purus eleifend, pulvinar eros sit amet, posuere velit. Sed cursus velit consequat, mattis ex sodales, suscipit lectus. Nulla at placerat odio. Curabitur quis ultrices libero. Morbi aliquam iaculis sapien. Integer elementum nulla nec pellentesque mollis. Proin a tellus at nulla mattis facilisis. In efficitur viverra mauris non ultrices. Pellentesque sed mauris semper, mollis dui nec, hendrerit ipsum.'),
+('2','Riktlinjer.','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique dapibus lacus, vitae venenatis nibh elementum et. Nullam eu iaculis risus, ac pulvinar est. Nam at nisi vel lorem varius porttitor. Nullam eget ipsum leo. Fusce ligula arcu, dictum at posuere scelerisque, sodales et est. Aliquam a purus eleifend, pulvinar eros sit amet, posuere velit. Sed cursus velit consequat, mattis ex sodales, suscipit lectus. Nulla at placerat odio. Curabitur quis ultrices libero. Morbi aliquam iaculis sapien. Integer elementum nulla nec pellentesque mollis. Proin a tellus at nulla mattis facilisis. In efficitur viverra mauris non ultrices. Pellentesque sed mauris semper, mollis dui nec, hendrerit ipsum.'),
+('5','Här är jag.','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique dapibus lacus, vitae venenatis nibh elementum et. Nullam eu iaculis risus, ac pulvinar est. Nam at nisi vel lorem varius porttitor. Nullam eget ipsum leo. Fusce ligula arcu, dictum at posuere scelerisque, sodales et est. Aliquam a purus eleifend, pulvinar eros sit amet, posuere velit. Sed cursus velit consequat, mattis ex sodales, suscipit lectus. Nulla at placerat odio. Curabitur quis ultrices libero. Morbi aliquam iaculis sapien. Integer elementum nulla nec pellentesque mollis. Proin a tellus at nulla mattis facilisis. In efficitur viverra mauris non ultrices. Pellentesque sed mauris semper, mollis dui nec, hendrerit ipsum.'),
+('3','Jag är den jag är!','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique dapibus lacus, vitae venenatis nibh elementum et. Nullam eu iaculis risus, ac pulvinar est. Nam at nisi vel lorem varius porttitor. Nullam eget ipsum leo. Fusce ligula arcu, dictum at posuere scelerisque, sodales et est. Aliquam a purus eleifend, pulvinar eros sit amet, posuere velit. Sed cursus velit consequat, mattis ex sodales, suscipit lectus. Nulla at placerat odio. Curabitur quis ultrices libero. Morbi aliquam iaculis sapien. Integer elementum nulla nec pellentesque mollis. Proin a tellus at nulla mattis facilisis. In efficitur viverra mauris non ultrices. Pellentesque sed mauris semper, mollis dui nec, hendrerit ipsum.'),
+('1','Mitt namn är Anders','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique dapibus lacus, vitae venenatis nibh elementum et. Nullam eu iaculis risus, ac pulvinar est. Nam at nisi vel lorem varius porttitor. Nullam eget ipsum leo. Fusce ligula arcu, dictum at posuere scelerisque, sodales et est. Aliquam a purus eleifend, pulvinar eros sit amet, posuere velit. Sed cursus velit consequat, mattis ex sodales, suscipit lectus. Nulla at placerat odio. Curabitur quis ultrices libero. Morbi aliquam iaculis sapien. Integer elementum nulla nec pellentesque mollis. Proin a tellus at nulla mattis facilisis. In efficitur viverra mauris non ultrices. Pellentesque sed mauris semper, mollis dui nec, hendrerit ipsum.'),
+('5','Voip!','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique dapibus lacus, vitae venenatis nibh elementum et. Nullam eu iaculis risus, ac pulvinar est. Nam at nisi vel lorem varius porttitor. Nullam eget ipsum leo. Fusce ligula arcu, dictum at posuere scelerisque, sodales et est. Aliquam a purus eleifend, pulvinar eros sit amet, posuere velit. Sed cursus velit consequat, mattis ex sodales, suscipit lectus. Nulla at placerat odio. Curabitur quis ultrices libero. Morbi aliquam iaculis sapien. Integer elementum nulla nec pellentesque mollis. Proin a tellus at nulla mattis facilisis. In efficitur viverra mauris non ultrices. Pellentesque sed mauris semper, mollis dui nec, hendrerit ipsum.'),
+('3','Skolarbete','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique dapibus lacus, vitae venenatis nibh elementum et. Nullam eu iaculis risus, ac pulvinar est. Nam at nisi vel lorem varius porttitor. Nullam eget ipsum leo. Fusce ligula arcu, dictum at posuere scelerisque, sodales et est. Aliquam a purus eleifend, pulvinar eros sit amet, posuere velit. Sed cursus velit consequat, mattis ex sodales, suscipit lectus. Nulla at placerat odio. Curabitur quis ultrices libero. Morbi aliquam iaculis sapien. Integer elementum nulla nec pellentesque mollis. Proin a tellus at nulla mattis facilisis. In efficitur viverra mauris non ultrices. Pellentesque sed mauris semper, mollis dui nec, hendrerit ipsum.'),
+('4','After Plugg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique dapibus lacus, vitae venenatis nibh elementum et. Nullam eu iaculis risus, ac pulvinar est. Nam at nisi vel lorem varius porttitor. Nullam eget ipsum leo. Fusce ligula arcu, dictum at posuere scelerisque, sodales et est. Aliquam a purus eleifend, pulvinar eros sit amet, posuere velit. Sed cursus velit consequat, mattis ex sodales, suscipit lectus. Nulla at placerat odio. Curabitur quis ultrices libero. Morbi aliquam iaculis sapien. Integer elementum nulla nec pellentesque mollis. Proin a tellus at nulla mattis facilisis. In efficitur viverra mauris non ultrices. Pellentesque sed mauris semper, mollis dui nec, hendrerit ipsum.');
+--------------------------------------------------
+C. Skapa minst två kommentarer per användare på olika posts.
+INSERT INTO Comments (Post_ID, User_ID, Text) VALUES 
+('2','1','Moget'),
+('1','2','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique dapibus lacus, vitae venenatis nibh elementum et.'),
+('1','3','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique dapibus lacus, vitae venenatis nibh elementum et. Nullam eu iaculis risus, ac pulvinar est. Nam at nisi vel lorem varius porttitor. Nullam eget ipsum leo. Fusce ligula arcu, dictum at posuere scelerisque, sodales et est. Aliquam a purus eleifend, pulvinar eros sit amet, posuere velit. Sed cursus velit consequat, mattis ex sodales, suscipit lectus. Nulla at placerat odio. Curabitur quis ultrices libero. Morbi aliquam iaculis sapien. Integer elementum nulla nec pellentesque mollis.'),
+('1','4','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique dapibus lacus, vitae venenatis nibh elementum et. Nullam eu iaculis risus, ac pulvinar est. Nam at nisi vel lorem varius porttitor. Nullam eget ipsum leo. '),
+('1','5','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique dapibus lacus, vitae venenatis nibh elementum et. Nullam eu iaculis risus, ac pulvinar est. Nam at nisi vel lorem varius porttitor. Nullam eget ipsum leo. Fusce ligula arcu, dictum at posuere scelerisque, sodales et est. Aliquam a purus eleifend, pulvinar eros sit amet, posuere velit. Sed cursus velit consequat, mattis ex sodales, suscipit lectus. Nulla at placerat odio. Curabitur quis ultrices libero. Morbi aliquam iaculis sapien. Integer elementum nulla nec pellentesque mollis. Proin a tellus at nulla mattis facilisis. In efficitur viverra mauris non ultrices. Pellentesque sed mauris semper, mollis dui nec, hendrerit ipsum.'),
+('3','5','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique dapibus lacus, vitae venenatis nibh elementum et. Nullam eu iaculis risus, ac pulvinar est. Nam at nisi vel lorem varius porttitor. Nullam eget ipsum leo. Fusce ligula arcu, dictum at posuere scelerisque, sodales et est. Aliquam a purus eleifend, pulvinar eros sit amet, posuere velit. Sed cursus velit consequat, mattis ex sodales, suscipit lectus. Nulla at placerat odio. Curabitur quis ultrices libero..'),
+('8','3','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique dapibus lacus, vitae venenatis nibh elementum et. Nullam eu iaculis risus, ac pulvinar est. Nam at nisi vel lorem varius porttitor. Nullam eget ipsum leo. Fusce ligula arcu, dictum at posuere scelerisque, sodales et est. Aliquam a purus eleifend, pulvinar eros sit amet, posuere velit. Sed cursus velit consequat, mattis ex sodales, suscipit lectus. Nulla at placerat odio. Curabitur quis ultrices libero. Morbi aliquam iaculis sapien. Integer elementum nulla nec pellentesque mollis. Proin a tellus at nulla mattis facilisis.'),
+('8','4','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique dapibus lacus, vitae venenatis nibh elementum et.'),
+('8','1','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique dapibus lacus, vitae venenatis nibh elementum et. Nullam eu iaculis risus, ac pulvinar est. Nam at nisi vel lorem varius porttitor. Nullam eget ipsum leo. Fusce ligula arcu, dictum at posuere scelerisque, sodales et est. Aliquam a purus eleifend, pulvinar eros sit amet, posuere velit. '),
+('10','2','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique dapibus lacus, vitae venenatis nibh elementum et. Nullam eu iaculis risus, ac pulvinar est. Nam at nisi vel lorem varius porttitor. Nullam eget ipsum leo.');
+----------------------------------------------------------------------------------------------------
+3. HÄMTA/MODIFIERA INFORMATION I DATABASEN:
+
+A. Vad ska jag skriva för fråga om jag vill få den användare med flest likes på alla sina inlägg?
+SELECT Username FROM Users WHERE ID=(SELECT User_ID FROM Posts GROUP BY User_ID ORDER BY Likes DESC LIMIT 1);
+SELECT MAX(likes), Username FROM users JOIN posts ON users.ID = posts.User_ID;
+
+B. Vad ska jag skriva för fråga om jag vill få fram det tredje första inlägget som någonsin skrevs?
+SELECT Headline, Text FROM Posts ORDER BY Creation_time LIMIT 1 OFFSET 2;
+
+C. Vad ska jag skriva för fråga om jag vill hämta antal kommentarer varje användare skrivit?
+SELECT u.Username, COUNT(c.User_ID) AS "Antal Kommentarer" FROM Comments AS c JOIN Users AS u ON c.User_ID = u.ID GROUP BY c.User_ID;
+
+D. Vad ska jag skriva för fråga om jag vill hämta id på den post med näst-flest kommentarer?
+SELECT p.ID, c.Count FROM Posts AS p INNER JOIN ( SELECT Post_ID, COUNT(*) AS Count FROM comments GROUP BY post_id ) AS c ON p.ID = c.Post_ID Order by c.Count DESC LIMIT 1 OFFSET 1;
+
+E. Vad ska jag skriva för fråga för att få veta hur många inlägg och kommentarer som skrivits?
+SELECT (SELECT COUNT(*) FROM Posts) AS "Antal inlägg", (SELECT COUNT(*) FROM Comments) AS "Antal kommentarer";
+SELECT COUNT(p.ID) AS posts, COUNT(c.ID) AS comments FROM Comments AS c JOIN Posts AS p ON c.User_ID = p.User_ID
+
+F. Vad ska jag skriva för fråga för att hämta alla inlägg som är skapade i September 2015?
+SELECT * FROM Posts WHERE DATE(Creation_time) BETWEEN '2015-09-01' AND '2015-09-30';
+
+G. Vad ska jag skriva om någon har gillat kommentaren med id=4? (Jag vill då öka Likes med 1)
+UPDATE Comments SET Likes = Likes + 1 WHERE ID='4';
+
+H. Vad ska jag skriva för att ändra på det senaste inlägget användaren med id=1 skrev?
+UPDATE Posts SET Text = 'Orem Ipsum' WHERE User_ID = '1' ORDER BY Creation_time DESC LIMIT 1;
+
+I. Vad ska jag skriva för att ta bort alla kommentarer som användaren med id=3 skrivit?
+DELETE FROM Comments WHERE User_ID = '3';
+
+J. Vad ska jag skriva för att ta bort användaren med id=2? (Flera rader krävs)
+DELETE FROM Comments WHERE User_ID=2;
+DELETE FROM Posts WHERE User_ID=2; 
+DELETE FROM Users WHERE ID=2;
