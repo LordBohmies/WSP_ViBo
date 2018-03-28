@@ -37,3 +37,14 @@ Bekanta dig med phpMyAdmin - https://www.youtube.com/watch?v=0hog1GAPfIo
         (2, 'snart-ar-det-var', 'Snart är det vår', 'Snart är det vår! Då övar vi på PHP för att bli duktiga webbserverprogrammerare. Detta är tredje labben och andra labben i en serie labbar som tillsammans bygger ihop detta projekt. Ett enkelt PHP-projekt men väl strukturerat och genomtänkt konstruerat.', '2018-01-31 23:00:00'),
         (3, 'robin-presenterar-sig', 'Robin presenterar sig', 'Robin är en trevlig prick som gärna övar på PHP för att som du bli en duktig webbserverprogrammerare. Detta är tredje labben och andra labben i en serie labbar som tillsammans bygger ihop detta projekt. Ett enkelt PHP-projekt men väl strukturerat och genomtänkt konstruerat.', '2018-02-23 23:00:00'),
         (1, 'senaste-inlagget', 'Senaste inlägget', 'Här kommer senaste inlägget i sin helhet. Välkommen till Labb 3! Här övar vi på PHP för att bli duktiga webbserverprogrammerare. Detta är tredje labben och andra labben i en serie labbar som tillsammans bygger ihop detta projekt. Ett enkelt PHP-projekt men väl strukturerat och genomtänkt konstruerat.', '2018-03-27 21:42:11');
+
+4.  Genomför övningar.
+    a. Vi kommer arbeta med PDO istället för mysqli som jag tidigare sagt. Läs på om skillnaden mellan MySQL, MySQLi och PDO (PHP Data Objects).
+    MySQL       - http://www.php.net/manual/en/ref.mysql.php
+    MySQLi      - http://www.php.net/manual/en/intro.mysqli.php
+    PDO         - http://php.net/manual/en/book.pdo.php
+    Skillnaden  -
+        https://teamtreehouse.com/community/as-a-beginner-mysql-mysqli-pdo-what-the-best-choice
+        http://www.yudiz.com/mysql-vs-mysqli-vs-pdo/
+        https://code.tutsplus.com/tutorials/pdo-vs-mysqli-which-should-you-use--net-24059
+        https://www.phpclasses.org/blog/post/521-mysqli-vs-pdo-vs-mysql.html
