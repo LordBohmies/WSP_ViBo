@@ -53,7 +53,103 @@ Ifall du vill kräva inloggning när man öppnar phpMyAdmin, följ stegen nedan.
     MySQLi      - http://www.php.net/manual/en/intro.mysqli.php
     PDO         - http://php.net/manual/en/book.pdo.php
     Skillnaden  -
-        https://teamtreehouse.com/community/as-a-beginner-mysql-mysqli-pdo-what-the-best-choice
         http://www.yudiz.com/mysql-vs-mysqli-vs-pdo/
         https://code.tutsplus.com/tutorials/pdo-vs-mysqli-which-should-you-use--net-24059
         https://www.phpclasses.org/blog/post/521-mysqli-vs-pdo-vs-mysql.html
+
+5.  Genomför övningar
+    Övning 1:
+    Vi kommer fortsätta arbeta med model.php i den här laborationen.
+    a. Öppna därför model.php som ligger under /resources/includes/
+    b. Överst i model.php skriver vi anlutningsuppgifterna vi angav under del 1.
+        $host = 'localhost';
+        $dbname = 'valfritt';
+        $user = 'valfritt';
+        $password = 'valfritt';
+
+    c. Strax under våra nyangivna variabler så skapar vi oss ett nytt objekt.
+        $pdo = new PDO("mysql:dbname=$dbname;host=$host", $user, $password);
+
+    Notera dubbel-quotes/fnuttarna vid upprättande av anslutning. Dessa måste vara dubbelfnuttar.
+
+    Övning 2:
+    För att testa vår anslutning så anger vi efter anslutningen.
+        if($pdo)
+            echo "Database connected!";
+        else
+            print_r($pdo->errorInfo());
+
+    Det kan vara värt att testa hur ett fel i koden skulle utspela sig.
+
+    Övning 3:
+    Vi kommer in i if-satsen if($pdo) ifall det gick att skapa objektet och vi vill nu inne i if-satsen använda oss utav PDO-objektet.
+
+        echo "<pre>";
+        foreach($pdo->query('SELECT * FROM ernst') as $row) {
+            print_r($row);
+        }
+        echo "</pre>";
+
+    Vi får ut ett stort antal rader text som kommer från en associativ och numeriskt indexerad array för varje inlägg.
+
+    Övning 4:
+    Eftersom vi vill att vårt PDO-objekt endast skall vara en associativ array så behöver vi ändra på inställningar vid tillfället då vi skapar objektet.
+    Före $pdo skapar vi alltså följande:
+        $attr = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC);
+
+    Därefter så lägger vi till inställningen för attributet vid skapandet av vårt PDO-objekt.
+    Vi ersätter alltså vår tidigare $pdo.
+        $pdo = new PDO("mysql:dbname=$dbname;host=$host", $user, $password, $attr);
+
+    Övning 5:
+    Vi vill nu kommentera bort vår Orginal $model och populera en ny $model innuti vår foreach. Till vår hjälp kommer vi att ha våran nu bortkommenterade array.
+
+    Till att börja med så behöver vi skapa den nya arrayen. Det gör vi före foreach-satsen men innuti if-satsen.
+
+    Inne i foreach-satsen vill vi lägga till $row som ett värde i $model. Kom ihåg att model-arrayen ska vara associativ! Då är row bara värdet. Vi behöver även en nyckel. Använd $model['nyckel']['värde'] för att lägga till värdet under rätt nyckel.
+
+    I första varvet i foreach-satsen så innehåller $row.
+    Array
+    (
+        [ID] => 1
+        [Slug] => forsta-inlagget
+        [User_ID] => 1
+        [Headline] => Första inlägget
+        [Creation_time] => 2015-01-01
+        [Text] => Här kommer det första inlägget i sin helhet. Välkommen till Labb 3! Här övar vi på PHP för att bli duktiga webbserverprogrammerare. Detta är tredje labben och andra labben i en serie labbar som tillsammans bygger ihop detta projekt. Ett enkelt PHP-projekt men väl strukturerat och genomtänkt konstruerat.
+    )
+
+    Övning 6:
+    Nu skall ?page=blogg fungera utan några problem. Testa genom att gå in på phpmyadmin och lägg till fler inlägg.
+
+    Ni har säkerligen noterat att texten bytt ut åäö trots att vi i databasen valt en korrekt kollatering. Varför?
+    Ifall du vill lära dig mer läs: http://porkforge.mardby.se/index.php?title=Hur_vi_f%C3%A5r_utf-8_att_fungera_i_v%C3%A5r_PHP_och_MySQL
+
+    Vi behöver ställa in så att vårt PDO-objekt använder sig utav utf-8 också. Efter $attr men före $pdo så skrivs följande:
+        $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
+
+    Kom ihåg att ändra $pdo så att det använder sig utav de nya inställningarna och att testa de nya inställningarna så att de fungerar.
+
+    TIPS 1.
+    Det är vanligt att man friställer sina SQL-frågor från loopar och satser för att de skall blir mer lättlästa. Därför väljer jag att placera variabeln $sql inne i if-satsen men före vår foreach.
+
+    Övning 7:
+    Nu ska vi lösa så att Läs mer-länkarna fungerar på ?page=blogg så att de leder vidare till att visa upp ett inlägg med korrekt information ur databasen.
+    Det borde inte vara några problem för er att klara det på egen hand.
+
+    Övning 8:
+    Lägg till ett par inlägg till via phpmyadmin, se till att dessa har spridda datum.
+    Därefter så skall du se till alla inlägg visas i omvänd kronologisk ordning, d.v.s att det senaste visas först och så vidare.
+    Vad ändrade du och i vilken fil?
+
+    Tänk MySQL. ;)
+
+    Övning 9:
+    Som du kan se så är vår nuvarande author/författare på sidan en siffra. Den här siffran representerar ett användar ID. Ändra nu SQL-frågan så att den hämtar användarnamnet på dess plats. Kom ihåg att ytterligare kod kan behövas ändras.
+    Om du vill fördjupa dig ytterligar så kan det vara värt att test dig fram hur du på olika sätt kan använda dig av förnamn & efternamn som författare
+
+Ytterligare läsning:
+Arbeta mot en databas - http://porkforge.mardby.se/index.php?title=Arbeta_mot_en_databas_(PHP)
+En första enkel gästbok - http://porkforge.mardby.se/index.php?title=En_f%C3%B6rsta_enkel_g%C3%A4stbok_(PHP)
+
+http://localhost/wsp_XxYy/Laboration_PHP/PDO/resources/includes/model.php

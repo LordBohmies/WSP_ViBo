@@ -8,10 +8,7 @@ require ('resources/views/header.php');
 
 navigation($header);
 
-// Old way from Beginning
-//echo $content;
-
-// Content - New way for Blogging
+// Content
 echo '<div class="content">';
 echo $error;
 echo $content;

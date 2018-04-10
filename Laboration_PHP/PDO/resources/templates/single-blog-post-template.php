@@ -17,6 +17,6 @@ navigation($header);
     </div>
 </div>
 <?php
-//Inlcude Footer
+//Include Footer
 require ('resources/views/footer.php');
 ?>

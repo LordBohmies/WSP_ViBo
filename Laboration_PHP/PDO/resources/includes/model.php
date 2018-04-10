@@ -1,16 +1,4 @@
 <?php
-
-
-
-
-
-
-
-
-//Simple array for topics - Övning 4 (http://porkforge.mardby.se/index.php?title=PHP_Laboration_3_-_Array_och_loopar#.C3.96vning_4)
-//$model = array("Första inlägget","Snart är det vår","Robin Presenterar sig","Senaste inlägget")
-
-//2D Associative array for full posts - Övning 9 (http://porkforge.mardby.se/index.php?title=PHP_Laboration_3_-_Array_och_loopar#.C3.96vning_9_-_g.C3.B6r_2D_associative_array)
 $model = array(
     '0' => array(
         'slug' => 'forsta-inlagget',

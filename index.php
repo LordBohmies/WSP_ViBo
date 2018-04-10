@@ -1,6 +1,7 @@
 <?php
-require ('resources/functions/functions.php');
-require ('resources/functions/model.php');
+require ('resources/includes/view.php');
+require ('resources/includes/model.php');
+
 // Set header correct without using HTML
 header("Content-type: text/html; charset=utf-8");
 
@@ -30,7 +31,7 @@ elseif($page == 'blogg') {
 		//Loop through the $model array and check if the message exists.
 		foreach($model as $key => $slug) {
 			if ($model[$key]['slug'] == $post) {
-				$template = "single-blog-post";
+				$template = 'single-blog-post';
 				$title = $model[$key]['title'];
 				$author = $model[$key]['author'];
 				$date = $model[$key]['date'];
