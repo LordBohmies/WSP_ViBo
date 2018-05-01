@@ -6,9 +6,9 @@ Ifall du vill kräva inloggning när man öppnar phpMyAdmin, följ stegen nedan.
             /Applications/XAMPP/xamppfiles/phpmyadmin/config.inc.php.
         Och öppna filen med er favorit editor.
     B.  Se till att:
-            $cfg['blowfish_secret'] = ''; inte är kommenterad och att '' inte är tom.
+            $cfg[blowfish_secret] = ; inte är kommenterad och att  inte är tom.
                 Det kan förslagsvis stå xampp eller något mer avancerat (dsd87892@829109skmclwopa&), finns endast till för att försvåra för ev. hackers.
-            $cfg['Servers'][$i]['auth_type'] = 'cookie'; inte är kommenterad och att det står cookie innanför '', det brukar vara tomt.
+            $cfg[Servers][$i][auth_type] = cookie; inte är kommenterad och att det står cookie innanför , det brukar vara tomt.
 
 1.  Skapa en ny Användare
     Användarnamn: admin
@@ -28,7 +28,7 @@ Ifall du vill kräva inloggning när man öppnar phpMyAdmin, följ stegen nedan.
     User_ID int(8) NOT NULL,
     Headline varchar(100) NOT NULL,
     Text text(500) NOT NULL,
-    Likes int(8) DEFAULT '0',
+    Likes int(8) DEFAULT 0,
     Creation_time timestamp DEFAULT CURRENT_TIMESTAMP
     );
 
@@ -41,11 +41,11 @@ Ifall du vill kräva inloggning när man öppnar phpMyAdmin, följ stegen nedan.
     d. Under Operationer ändra Kollatering till utf8mb4_general_ci, men har du satt det för databasen så kommer tabellen få samma kollatering som databasen
 
     e. Fyll på tabellen posts med de fyra inläggen du har i model-arrayen. Exempelvis:
-        INSERT INTO `posts` (`User_ID`, `Slug`, `Headline`, `Text`, `Creation_time`) VALUES
-            (1, 'forsta-inlagget', 'Första inlägget', 'Här kommer det första inlägget i sin helhet. Välkommen till Labb 3! Här övar vi på PHP för att bli duktiga webbserverprogrammerare. Detta är tredje labben och andra labben i en serie labbar som tillsammans bygger ihop detta projekt. Ett enkelt PHP-projekt men väl strukturerat och genomtänkt konstruerat.', '2017-12-31 23:00:00'),
-            (2, 'snart-ar-det-var', 'Snart är det vår', 'Snart är det vår! Då övar vi på PHP för att bli duktiga webbserverprogrammerare. Detta är tredje labben och andra labben i en serie labbar som tillsammans bygger ihop detta projekt. Ett enkelt PHP-projekt men väl strukturerat och genomtänkt konstruerat.', '2018-01-31 23:00:00'),
-            (3, 'robin-presenterar-sig', 'Robin presenterar sig', 'Robin är en trevlig prick som gärna övar på PHP för att som du bli en duktig webbserverprogrammerare. Detta är tredje labben och andra labben i en serie labbar som tillsammans bygger ihop detta projekt. Ett enkelt PHP-projekt men väl strukturerat och genomtänkt konstruerat.', '2018-02-23 23:00:00'),
-            (1, 'senaste-inlagget', 'Senaste inlägget', 'Här kommer senaste inlägget i sin helhet. Välkommen till Labb 3! Här övar vi på PHP för att bli duktiga webbserverprogrammerare. Detta är tredje labben och andra labben i en serie labbar som tillsammans bygger ihop detta projekt. Ett enkelt PHP-projekt men väl strukturerat och genomtänkt konstruerat.', '2018-03-27 21:42:11');
+        INSERT INTO posts (User_ID, Slug, Headline, Text, Creation_time) VALUES
+            (1, forsta-inlagget, Första inlägget, Här kommer det första inlägget i sin helhet. Välkommen till Labb 3! Här övar vi på PHP för att bli duktiga webbserverprogrammerare. Detta är tredje labben och andra labben i en serie labbar som tillsammans bygger ihop detta projekt. Ett enkelt PHP-projekt men väl strukturerat och genomtänkt konstruerat., 2017-12-31 23:00:00),
+            (2, snart-ar-det-var, Snart är det vår, Snart är det vår! Då övar vi på PHP för att bli duktiga webbserverprogrammerare. Detta är tredje labben och andra labben i en serie labbar som tillsammans bygger ihop detta projekt. Ett enkelt PHP-projekt men väl strukturerat och genomtänkt konstruerat., 2018-01-31 23:00:00),
+            (3, robin-presenterar-sig, Robin presenterar sig, Robin är en trevlig prick som gärna övar på PHP för att som du bli en duktig webbserverprogrammerare. Detta är tredje labben och andra labben i en serie labbar som tillsammans bygger ihop detta projekt. Ett enkelt PHP-projekt men väl strukturerat och genomtänkt konstruerat., 2018-02-23 23:00:00),
+            (1, senaste-inlagget, Senaste inlägget, Här kommer senaste inlägget i sin helhet. Välkommen till Labb 3! Här övar vi på PHP för att bli duktiga webbserverprogrammerare. Detta är tredje labben och andra labben i en serie labbar som tillsammans bygger ihop detta projekt. Ett enkelt PHP-projekt men väl strukturerat och genomtänkt konstruerat., 2018-03-27 21:42:11);
 
 4.  Läs på.
     a. Vi kommer arbeta med PDO istället för mysqli som jag tidigare sagt. Läs på om skillnaden mellan MySQL, MySQLi och PDO (PHP Data Objects).
@@ -62,10 +62,10 @@ Ifall du vill kräva inloggning när man öppnar phpMyAdmin, följ stegen nedan.
     Vi kommer fortsätta arbeta med model.php i den här laborationen.
     a. Öppna därför model.php som ligger under /resources/includes/
     b. Överst i model.php skriver vi anlutningsuppgifterna vi angav under del 1.
-        $host = 'localhost';
-        $dbname = 'valfritt';
-        $user = 'valfritt';
-        $password = 'valfritt';
+        $host = localhost;
+        $dbname = valfritt;
+        $user = valfritt;
+        $password = valfritt;
         ANVÄND INTE ETT LÖSENORD SOM DU VILL SKYDDA!
         Alltså inte det lösenord du har på din mail, facebook eller liknande.
         Använd alltså något väldigt enkelt som du gärna blir av med.
@@ -88,7 +88,7 @@ Ifall du vill kräva inloggning när man öppnar phpMyAdmin, följ stegen nedan.
     Vi kommer in i if-satsen if($pdo) ifall det gick att skapa objektet och vi vill nu inne i if-satsen använda oss utav PDO-objektet.
 
         echo "<pre>";
-        foreach($pdo->query('SELECT * FROM ernst') as $row) {
+        foreach($pdo->query(SELECT * FROM ernst) as $row) {
             print_r($row);
         }
         echo "</pre>";
@@ -109,7 +109,7 @@ Ifall du vill kräva inloggning när man öppnar phpMyAdmin, följ stegen nedan.
 
     Till att börja med så behöver vi skapa den nya arrayen. Det gör vi före foreach-satsen men innuti if-satsen.
 
-    Inne i foreach-satsen vill vi lägga till $row som ett värde i $model. Kom ihåg att model-arrayen ska vara associativ! Då är row bara värdet. Vi behöver även en nyckel. Använd $model['nyckel']['värde'] för att lägga till värdet under rätt nyckel.
+    Inne i foreach-satsen vill vi lägga till $row som ett värde i $model. Kom ihåg att model-arrayen ska vara associativ! Då är row bara värdet. Vi behöver även en nyckel. Använd $model[nyckel][värde] för att lägga till värdet under rätt nyckel.
 
     I första varvet i foreach-satsen så innehåller $row.
     Array
@@ -153,7 +153,15 @@ Ifall du vill kräva inloggning när man öppnar phpMyAdmin, följ stegen nedan.
     Om du vill fördjupa dig ytterligar så kan det vara värt att test dig fram hur du på olika sätt kan använda dig av förnamn & efternamn som författare
 
     För att skapa tabell Users
-    CREATE TABLE `Users` (`ID` int(8) NOT NULL AUTO_INCREMENT, `Username` varchar(50) NOT NULL, `Password` varchar(64) NOT NULL, `Salt` varchar(32) NOT NULL, `FName` varchar(50) NOT NULL, `LName` varchar(50) NOT NULL, `Mail` varchar(100) NOT NULL, PRIMARY KEY (`ID`), UNIQUE KEY `Username` (`Username`), UNIQUE KEY `Mail` (`Mail`)) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4
+    CREATE TABLE Users (
+    ID int(8) NOT NULL AUTO_INCREMENT,
+    Username varchar(50) NOT NULL,
+    Password varchar(64) NOT NULL,
+    Salt varchar(32) NOT NULL,
+    FName varchar(50) NOT NULL,
+    LName varchar(50) NOT NULL,
+    Mail varchar(100) NOT NULL,
+    PRIMARY KEY (ID), UNIQUE KEY Username (Username), UNIQUE KEY Mail (Mail))
 
 Ytterligare läsning:
 Arbeta mot en databas - http://porkforge.mardby.se/index.php?title=Arbeta_mot_en_databas_(PHP)

@@ -1,0 +1,39 @@
+Vi vill nu avancera våra kunskaper i ett fåtal steg.
+Först lite läsning
+1.  Separera vår anslutning.
+    För att det skall bli svårare för eventuella hackers att komma åt vår databas och användaruppgifter så vill man gärna separera funktioner och arbeta med sessions.
+    Här är det rekommenderat att man börjar arbeta med session_start();
+    Läs om sessions på:
+    w3schools   -   https://www.w3schools.com/php/php_sessions.asp
+    php-manual  -   http://php.net/manual/en/reserved.variables.session.php
+
+2.  Söka med formulär.
+    När inläggen blir så många som de kan bli så vill man ju bara visa de mest relevanta. Det är säkerligen något ni märkt av på Facebook. vanligtvist så gör man det här med en sökningsalgoritm. Vi kommer arbeta med ett sök-formulär och använda oss utav vår färdiga frågeställning.
+    Läs om hur vi kan söka bland våra resultat:
+    Sökformulär     - https://www.w3schools.com/howto/howto_css_search_button.asp
+    Sök med Filter  - https://www.w3schools.com/howto/howto_js_filter_lists.asp
+    WHERE, OR & LIKE- https://www.w3schools.com/sql/default.asp
+
+3.  Applicera vår sökning
+    Vi börjar med att skapa ett mycket enkelt formulär med ett inmatningsfält för text och en knapp för att applicera vår sökning. Formuläret placeras i all-posts.php.
+    I model.php så placerar vi innuti vår tidigare if-sats (pdo) en if-sats för att se ifall användaren har klickat på knappen. Vi deklarerar därefter variabeln $data och tilldelar den informationen som användaren skickat från sök-formuläret.
+    Vi undersöker därefter med en if-sats ifall $data innehåller någon information och i sådana fall anpassar vi vår tidigare skapade variabel $sql så att den använder variabeln $data.
+
+4.  Slutuppgift
+    Nu ska du på egen hand färdigställa vårt arbete.
+    Nedan så kan du läsa igenom var och en av deluppgifterna som du behöver genomföra för de olika betygsnivåerna. Du kan även hitta många av deluppgifterna i model.php och post.php.
+
+    Betyget E:
+    För betyget E så behöver du genomföra följande uppgifter.
+    1.  Kommentera (beskriv) koden så utförligt som möjligt i minst filerna model.php & post.php.
+    2.  post.php - Variabeln $sql innehåller nu en query som kan användas för att spara inlägget användaren skrivit i databasen. För betyget E så krävs det att ni skriver en kod som använder variabeln $sql för att skicka inlägget till databasen. Tänk på att namn på tabell & kolumner i er databas kan skiljas något från det jag angivit i $sql.
+
+    Betyget C:
+    För betyget C så behöver du genomföra alla uppgifter under nivå E samt följande uppgifter.
+    1. model.php - Variabeln $data kan innehålla, som den är utformad, information som kan skada vår databas. För betyget C så kräver jag att ni säkerställer att $data inte innehåller någon form av skadlig kod
+    2. model.php - I filen all-posts.php så skrivs det ut en kortare text följt av en länk till berört inlägg. Vore det inte mer passande att det istället skrivs ut ord från inlägget? För betyget C så kräver jag att ni tar fram en lösning där 10 ord från inlägget skrivs ut före läs mer. Tänk implode och/eller explode!
+    3.  post.php - Våra variabler $headline & $text tar emot information utan att kontrollera informationen före den skickas till vår databas. För betyget C så kräver jag att ni säkerställer att våra användare inte kan skicka med någon skadlig kod genom variablerna $headline & $text.
+
+    Betyget A:
+    För betyget A så behöver du genomföra alla uppgifter under nivå C samt följande uppgifter.
+    1.  model.php - Som det är just nu så tar vi bara in en variabel som vi använder när vi söker igenom databasen. Tittar man på sidor som exempelvis google och facebook så kan din sökning oftast innehålla flera sökord För betyget A så kräver jag att ni tar fram en lösning som gör det möjligt för användaren att kunna söka på flera separerade ord. Att man exempelvis kan söka på texter som innehåller både "Lorum" och "Ipsum".

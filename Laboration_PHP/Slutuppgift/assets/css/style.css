@@ -1,0 +1,139 @@
+* {
+	box-sizing: border-box;
+}
+
+/* BODY */
+body {
+	background-color: #880045;
+	font-family: Arial;
+}
+
+/* CONTAINER */
+.container {
+	width: 80%;
+	margin: auto;
+}
+header {
+	width: 100%;
+	border: 2px solid #9D2763;
+	margin-bottom: 5px;
+	text-align: center;
+	background-color: #E83A93;
+	background-image: url("http://porkforge.mardby.se/skins/common/images/wiki.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: 20px;
+
+}
+
+nav {
+	width: 100%;
+	border: 2px solid #9D2763;
+	margin-bottom: 5px;
+	text-align: center;
+	background-color: #E83A93;
+}
+
+nav ul li {
+	display: inline;
+}
+
+nav ul li a
+{
+	text-decoration: none;
+	padding: 5px;
+	border: 2px solid black;
+	color: white;
+	background-color: #880045;
+}
+
+nav ul li a.highlight
+{
+	color: #880045;
+	background-color: #E869AA;
+	font-weight: bold;
+}
+
+.content {
+	width: 99%;
+	margin: auto;
+	border: 2px solid #9D2763;
+	margin-bottom: 5px;
+	padding: 10px 20px;
+	background-color: #E869AA;
+}
+
+div.post
+{
+	border: 1px solid #880045;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+div.post h3
+{
+	color: #880045;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+div.post a
+{
+	color: #880045;
+}
+
+p.author
+{
+	margin-bottom: 0px;
+	margin-top: 5px;
+}
+
+p.date
+{
+	margin-top: 0px;
+	margin-bottom: 5px;
+}
+
+p.message
+{
+	border-top: 1px solid #E83A93;
+	padding-top: 5px;
+	margin-top: 5px;
+}
+
+form.search input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+}
+
+form.search button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #E83A93;
+    color: white;
+    font-size: 17px;
+    border-left: none;
+    cursor: pointer;
+}
+
+form.search button:hover {
+    background: #E83A75;
+}
+
+form.search::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+footer {
+	width: 100%;
+	border: 2px solid #9D2763;
+	text-align: center;
+	background-color: #E83A93;
+}
