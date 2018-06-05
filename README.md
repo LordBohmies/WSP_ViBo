@@ -7,7 +7,7 @@ CREATE TABLE Users(
  Username varchar(50) UNIQUE NOT NULL,
  First_name varchar(50) NOT NULL,
  Last_name varchar(50) NOT NULL,
- Mail varchar(100) UNIQUE NOT NULL,
+ Mail varchar(100) UNIQUE NOT NULL
 );
 
 CREATE TABLE Posts (
