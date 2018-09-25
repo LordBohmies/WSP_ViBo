@@ -33,54 +33,67 @@
         /*
         // Lägg till dina array elements efter "Bönor",
         // men före den avslutande parantesen.
+        */
         $handla = array("Ägg", "Tomater", "Bönor", "Chips", "Korv");
+        echo $handla[2];
+        echo "<br>";
 
         /*------------------------------------------------*/
         /*--------------------Övning 2--------------------*/
         /*---------------------Skapa----------------------*/
         /*
         // Skapa din första egna array bestående av dina vänner.
-        $
+        */
+        
+        
+        echo "<br>";
 
         /*--------------------Tillgång--------------------*/
         /*
         Varje element/item i en array har ett tilldelat nummer
         och numreringen startar på 0.
+        */
         $myArray = array("do", "re", "mi");
+        /*
         +------+------+------+
         | "do" | "re" | "mi" |
         +------+------+------+
            0      1      2
+        */
 
         echo $myArray[0];
-        skickar "do".
-        */
+        //skickar "do".
+        
+        
+        echo "<br>";
 
         /*--------------------Övning 3--------------------*/
         /*----------------------Tior----------------------*/
-        /*
         //Skapa din andra egna array bestående av 10-tal (10, 20, 30 osv.)
         //Prova att anropa diit tredje item i arrayen.
+        
+        
+        echo "<br>";
         /*------------------------------------------------*/
 
         /*---------------------Ändra----------------------*/
-        /*
         // Ett Item i en array kan bli ändrat genom att
         // specifiera positionen och tilldela ett nytt värde.
 
         $myArray = array("röd", "gul", "blå");
-        echo $myArray[1];
+        echo $myArray[1] . "<br>";
         // skickar "gul"
 
         $myArray[1] = "grön";
 
         echo $myArray[1];
         // skickar "grön"
-        */
+        
+        
+        echo "<br>";
 
         /*--------------------Övning 4--------------------*/
         /*---------------------Språk----------------------*/
-        /*
         // Kopiera arrayen nedan bestående av programmeringspråk
         // $languages = array("HTML", "CSS", "JavaScript", "PHP", "SQL", "Python")
 
@@ -88,7 +101,6 @@
         /*------------------------------------------------*/
 
         /*--------------------Ta Bort---------------------*/
-        /*
         // Ibland kommer man till läget att man vill ta bort
         // ett item i en array. Det gör man med hjälp av unset.
 
@@ -102,17 +114,18 @@
 
         //Ta bort hela arrayen.
         unset($myArray);
-        */
+        
+        echo "<br>";
 
         /*--------------------Övning 4--------------------*/
         /*---------------------Språk----------------------*/
-        /*
         // Kopiera arrayen nedan bestående av programmeringspråk
         // $languages = array("HTML", "CSS", "JavaScript", "PHP", "SQL", "Python")
 
         // Skriv koden för att ta bort Python.
 
         // En loop som vi kommer titta närmare på längre fram i kursen.
+        $languages = array("HTML", "CSS", "JavaScript", "PHP", "SQL", "Python");
         foreach($languages as $lang) {
             print "<p>$lang</p>";
         }

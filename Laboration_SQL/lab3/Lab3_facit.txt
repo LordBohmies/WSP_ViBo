@@ -1,4 +1,4 @@
-1. SKAPA TRE TABELLER I DIN DATABAS MED TILLHÖRANDE KOLUMNER.
+﻿1. SKAPA TRE TABELLER I DIN DATABAS MED TILLHÖRANDE KOLUMNER.
 USERS (TABELL FÖR ATT LAGRA ANVÄNDARE)
 ID
 Username
@@ -8,9 +8,9 @@ Mail
 
 CREATE TABLE Users(
  ID int(8) PRIMARY KEY AUTO_INCREMENT,
- Username varchar(50) UNIQUE NOT NULL,
- First_name varchar(50) NOT NULL,
- Last_name varchar(50) NOT NULL,
+ Username varchar(32) UNIQUE NOT NULL,
+ Forname varchar(32) NOT NULL,
+ Surname varchar(32) NOT NULL,
  Mail varchar(100) UNIQUE NOT NULL,
 );
 --------------------------------------------------
@@ -94,8 +94,8 @@ INSERT INTO Comments (Post_ID, User_ID, Text) VALUES
 3. HÄMTA/MODIFIERA INFORMATION I DATABASEN:
 
 A. Vad ska jag skriva för fråga om jag vill få den användare med flest likes på alla sina inlägg?
-SELECT Username FROM Users WHERE ID=(SELECT User_ID FROM Posts GROUP BY User_ID ORDER BY Likes DESC LIMIT 1);
-SELECT MAX(likes), Username FROM users JOIN posts ON users.ID = posts.User_ID;
+SELECT Username FROM Users WHERE ID=(SELECT User_ID FROM Posts GROUP BY User_ID ORDER BY SUM(Likes) DESC LIMIT 1);
+SELECT Username FROM Users Join Posts ON Users.ID = Posts.User_ID GROUP BY Posts.User_ID ORDER BY SUM(Likes) DESC LIMIT 1;
 
 B. Vad ska jag skriva för fråga om jag vill få fram det tredje första inlägget som någonsin skrevs?
 SELECT Headline, Text FROM Posts ORDER BY Creation_time LIMIT 1 OFFSET 2;

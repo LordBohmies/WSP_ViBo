@@ -6,13 +6,13 @@ function navigation($highlight) {
     $kontakt = '';
     $blogg = '';
 
-    if($highlight == 'Start') {
+    if($highlight === 'Start') {
         $start = 'class="highlight"';
     }
-    elseif($highlight == 'Kontakt') {
+    elseif($highlight === 'Kontakt') {
         $kontakt = 'class="highlight"';
     }
-    elseif($highlight == 'Blogg') {
+    elseif($highlight === 'Blogg') {
         $blogg = 'class="highlight"';
     }
 
@@ -33,10 +33,10 @@ function navigation($highlight) {
 Denna funktion ska anropas i footer.php så att texten blir "Vårt första PHP-projekt, copyright 2017"
 För att testa funktionen så ändra datum på datorn till 2017*/
 
-function echoYear(){
+function echoYear() {
     $year = date('Y');
 
-    if ($year == 2017) {
+    if ($year === 2017) {
         echo 'copyright 2017';
     }
     else {
