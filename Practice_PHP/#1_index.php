@@ -6,12 +6,12 @@
         <title>PHP!</title>
     </head>
     <body>
-        <img src="http://i1061.photobucket.com/albums/t480/ericqweinstein/php-logo_zps408c82d7.png"/>
+        <img src="http://i1061.photobucket.com/albums/t480/ericqweinstein/php-logo_zps408c82d7.png" alt='ABC'>
         <div class="header"><h1>
             <?php
-             $welcome = "Let's get started with PHP!";
-             echo $welcome;
-             ?>
+            $welcome = "Let's get started with PHP!";
+            echo $welcome;
+            ?>
          </h1></div>
          <p><strong>Generate a list:</strong>
              <?php
@@ -28,7 +28,7 @@
              $things = array("Talk to databases", "Send cookies", "Evaluate form data", "Build dynamic webpages");
 
              foreach ($things as $thing) {
-                 echo "<li>$thing</li>";
+                 echo "<li>" . $thing . "</li>";
              }
 
              unset($thing);

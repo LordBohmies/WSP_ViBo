@@ -44,8 +44,8 @@
         /*
         // Skapa din första egna array bestående av dina vänner.
         */
-        
-        
+
+
         echo "<br>";
 
         /*--------------------Tillgång--------------------*/
@@ -63,16 +63,16 @@
 
         echo $myArray[0];
         //skickar "do".
-        
-        
+
+
         echo "<br>";
 
         /*--------------------Övning 3--------------------*/
         /*----------------------Tior----------------------*/
         //Skapa din andra egna array bestående av 10-tal (10, 20, 30 osv.)
         //Prova att anropa diit tredje item i arrayen.
-        
-        
+
+
         echo "<br>";
         /*------------------------------------------------*/
 
@@ -88,8 +88,8 @@
 
         echo $myArray[1];
         // skickar "grön"
-        
-        
+
+
         echo "<br>";
 
         /*--------------------Övning 4--------------------*/
@@ -114,7 +114,7 @@
 
         //Ta bort hela arrayen.
         unset($myArray);
-        
+
         echo "<br>";
 
         /*--------------------Övning 4--------------------*/
